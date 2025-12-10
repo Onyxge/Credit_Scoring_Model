@@ -1,4 +1,4 @@
-# Credit Risk Scoring Project
+# Credit Scoring model Project
 
 ## Credit Scoring Business Understanding
 
