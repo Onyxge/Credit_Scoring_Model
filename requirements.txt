@@ -1,0 +1,25 @@
+# Data Manipulation
+pandas
+numpy
+
+# Visualization
+matplotlib
+seaborn
+
+# Machine Learning & Feature Engineering
+scikit-learn
+xverse          # Recommended for WoE/IV calculations [cite: 169]
+category_encoders
+
+# MLOps & Tracking
+mlflow          # Required by Task 5 [cite: 192]
+
+# API & Deployment
+fastapi         # Required by Task 6 [cite: 227]
+uvicorn         # Required by Task 6 [cite: 227]
+pydantic
+
+# Testing & Quality
+pytest          # Required by Task 5 [cite: 192]
+flake8          # Required by Task 6 [cite: 227]
+httpx           # Useful for testing the API later
