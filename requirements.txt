@@ -13,6 +13,7 @@ category_encoders
 
 # MLOps & Tracking
 mlflow          # Required by Task 5 [cite: 192]
+mlflow-skinny
 
 # API & Deployment
 fastapi         # Required by Task 6 [cite: 227]
@@ -23,3 +24,10 @@ pydantic
 pytest          # Required by Task 5 [cite: 192]
 flake8          # Required by Task 6 [cite: 227]
 httpx           # Useful for testing the API later
+
+python-dotenv
+joblib
+xgboost
+lightgbm
+notebook
+jupyterlab
