@@ -31,3 +31,6 @@ xgboost
 lightgbm
 notebook
 jupyterlab
+
+streamlit
+requests
