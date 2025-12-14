@@ -1,12 +1,11 @@
 import streamlit as st
 import requests
-import pandas as pd
 
 # Define the API URL
-# If running locally without Docker: "http://127.0.0.1:8000/predict"
+# If running locally without Docker: "http://api:8000/predict"
 # If running inside Docker Compose: "http://credit-scoring-api:8000/predict"
 # We default to localhost for testing, but Docker will need the service name.
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = "http://api:8000/predict"
 
 st.set_page_config(page_title="Credit Risk Scoring", layout="centered")
 
