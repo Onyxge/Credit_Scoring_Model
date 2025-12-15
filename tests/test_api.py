@@ -8,22 +8,29 @@ def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Credit Risk API Running. Use /predict to score customers."}
-
 def test_predict_endpoint():
-    """Test a sample prediction to ensure model works"""
     payload = {
-        "age": 30,
-        "income": 50000,
-        "loan_amount": 10000,
-        "loan_tenure_months": 12,
-        "avg_dpd_per_delinquency": 0,
-        "delinquency_ratio": 0,
-        "credit_utilization_ratio": 0.3,
-        "num_open_accounts": 2,
-        "residence_type": "Owned",
-        "loan_purpose": "Education",
-        "loan_type": "Unsecured"
+        "Recency": 10,
+        "Frequency": 25,
+        "Monetary": 50000,
+        "Cat_financial_services": 1,
+        "Cat_airtime": 0,
+        "Cat_utility_bill": 0,
+        "Ch_ChannelId_1": 1,
+        "Ch_ChannelId_2": 0,
+        "Ch_ChannelId_3": 0,
+        "Avg_Tx_Hour": 14,
+        "Std_Tx_Hour": 3,
+        "Channel_Diversity": 0.6,
+        "Category_Diversity": 0.4,
+        "Engagement_Score": 0.7
     }
+
     response = client.post("/predict", json=payload)
+
     assert response.status_code == 200
-    assert "risk_probability" in response.json()
+    data = response.json()
+
+    assert "risk" in data
+    assert "risk_probability" in data
+    assert "credit_score" in data
