@@ -5,6 +5,12 @@ import pandas as pd
 import concurrent.futures  # <--- Standard library for handling timeouts
 from fastapi import FastAPI, HTTPException
 from src.api.pydantic_models import CreditRequest, CreditResponse
+from fastapi import Depends
+def get_model():
+    return model
+
+def get_scaler():
+    return scaler
 
 app = FastAPI(
     title="Credit Risk Scoring API",
@@ -86,7 +92,12 @@ def health():
 
 
 @app.post("/predict", response_model=CreditResponse)
-def predict(request: CreditRequest):
+def predict(request: CreditRequest,
+    model=Depends(get_model),
+    scaler=Depends(get_scaler),):
+
+
+
     if not model:
         raise HTTPException(status_code=500, detail="Model is not loaded.")
 
@@ -114,7 +125,6 @@ def predict(request: CreditRequest):
 
         # 5. Calculate Custom Credit Score
         credit_score = int(850 - prob * 550)
-
         return {
             "risk": pred,
             "risk_probability": prob,
